@@ -9,7 +9,7 @@ port = 8080
 
 [routing]
 health_check = "/_healthz"
-public_paths = ["/_healthz"]
+public_paths = ["/_healthz", "/api/pty", "/api/ws"]
 
 [resources]
 memory_mb = 2048
