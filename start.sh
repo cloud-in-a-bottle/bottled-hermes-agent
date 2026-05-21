@@ -21,7 +21,7 @@ hermes gateway run &
 GATEWAY_PID=$!
 
 log "starting hermes dashboard on :8080"
-HERMES_TUI_INLINE=0 hermes dashboard --host 0.0.0.0 --port 8080 --no-open --insecure --tui &
+hermes dashboard --host 0.0.0.0 --port 8080 --no-open --insecure --tui &
 DASHBOARD_PID=$!
 
 set +e
