@@ -1,0 +1,19 @@
+[app]
+name = "hermes-agent"
+version = "0.1.0"
+description = "Hermes Agent - self-improving AI agent with persistent memory, skills, and multi-platform messaging"
+
+[runtime.container]
+image = "Dockerfile"
+port = 8080
+
+[routing]
+health_check = "/_healthz"
+public_paths = ["/_healthz"]
+
+[resources]
+memory_mb = 2048
+cpu_millicores = 2000
+
+[data]
+app_data = true
