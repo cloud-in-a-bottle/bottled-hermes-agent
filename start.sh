@@ -12,6 +12,11 @@ export HERMES_HOME
 
 mkdir -p "$HERMES_HOME"
 
+if [ ! -f "$HERMES_HOME/config.yaml" ]; then
+    log "seeding default config with anthropic/claude-opus-4-7"
+    hermes config set model anthropic/claude-opus-4-7 2>/dev/null || true
+fi
+
 GATEWAY_PID=""
 DASHBOARD_PID=""
 trap 'kill -TERM ${GATEWAY_PID:-} ${DASHBOARD_PID:-} 2>/dev/null; wait' TERM INT
