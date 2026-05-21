@@ -26,8 +26,9 @@ WORKDIR /opt/hermes/repo
 RUN uv pip install -e '.[all]'
 RUN npm install --prefix /opt/hermes/repo
 RUN npm install --prefix /opt/hermes/repo/ui-tui
+RUN cd /opt/hermes/repo/ui-tui && npm run build || true
 RUN npm install --prefix /opt/hermes/repo/web
-RUN npm run --prefix /opt/hermes/repo/web build || true
+RUN cd /opt/hermes/repo/web && npm run build || true
 WORKDIR /opt/hermes
 
 COPY start.sh /opt/openhost-hermes/start.sh
