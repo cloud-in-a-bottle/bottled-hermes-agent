@@ -21,7 +21,14 @@ RUN uv venv /opt/hermes/.venv --python 3.13
 ENV PATH="/opt/hermes/.venv/bin:$PATH"
 ENV VIRTUAL_ENV="/opt/hermes/.venv"
 
-RUN uv pip install 'hermes-agent[all]'
+RUN git clone --depth 1 https://github.com/NousResearch/hermes-agent.git /opt/hermes/repo
+WORKDIR /opt/hermes/repo
+RUN uv pip install -e '.[all]'
+RUN npm install --prefix /opt/hermes/repo
+RUN npm install --prefix /opt/hermes/repo/ui-tui
+RUN npm install --prefix /opt/hermes/repo/web
+RUN npm run --prefix /opt/hermes/repo/web build || true
+WORKDIR /opt/hermes
 
 COPY start.sh /opt/openhost-hermes/start.sh
 COPY auth_proxy.py /opt/openhost-hermes/auth_proxy.py
