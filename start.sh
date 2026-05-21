@@ -1,6 +1,9 @@
 #!/bin/bash
 set -euo pipefail
 
+export PATH="/opt/hermes/.venv/bin:$PATH"
+export VIRTUAL_ENV="/opt/hermes/.venv"
+
 log() { printf '[start.sh] %s\n' "$*" >&2; }
 
 DATA_DIR="${OPENHOST_APP_DATA_DIR:-/data/app_data/hermes-agent}"

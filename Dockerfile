@@ -17,9 +17,11 @@ COPY --chmod=0755 --from=uv_source /usr/local/bin/uv /usr/local/bin/uvx /usr/loc
 
 WORKDIR /opt/hermes
 
-RUN uv pip install --system 'hermes-agent[all]'
+RUN uv venv /opt/hermes/.venv --python 3.13
+ENV PATH="/opt/hermes/.venv/bin:$PATH"
+ENV VIRTUAL_ENV="/opt/hermes/.venv"
 
-RUN npm install --prefix /opt/hermes/web-build || true
+RUN uv pip install 'hermes-agent[all]'
 
 COPY start.sh /opt/openhost-hermes/start.sh
 COPY auth_proxy.py /opt/openhost-hermes/auth_proxy.py
