@@ -1,6 +1,6 @@
-# openhost-hermes-agent
+# bottled-hermes-agent
 
-Hermes Agent packaged for OpenHost. Provides the Hermes web dashboard behind OpenHost owner SSO, with the gateway running for messaging platform integration.
+Hermes Agent packaged for Cloud in a Bottle. Provides the Hermes web dashboard behind Cloud in a Bottle owner SSO, with the gateway running for messaging platform integration.
 
 ## What's included
 
@@ -10,7 +10,7 @@ Hermes Agent packaged for OpenHost. Provides the Hermes web dashboard behind Ope
 
 ## Setup
 
-1. Deploy via the OpenHost dashboard or CLI
+1. Deploy via the Cloud in a Bottle dashboard or CLI
 2. Visit the app subdomain to access the Hermes dashboard
 3. Configure your LLM provider API key in the dashboard Settings page
 4. Optionally configure messaging platform tokens for gateway integration
